@@ -10,15 +10,18 @@
     </div>
     <footer class="card-footer">
       <a href="#" class="card-footer-item">Edit</a>
-      <a href="#" class="card-footer-item">Delete</a>
+      <a @click.prevent="handleDeleteClicked" href="#" class="card-footer-item"
+        >Delete</a
+      >
     </footer>
   </div>
 </template>
 
 <script setup>
-// props
-
+// imports
 import { computed } from '@vue/reactivity';
+
+// props
 
 const props = defineProps({
   note: {
@@ -27,10 +30,18 @@ const props = defineProps({
   },
 });
 
+// emits
+const emit = defineEmits(['deleteClicked']);
+
 // character length
 const characterLength = computed(() => {
   let length = props.note.content.length;
   let description = length > 1 ? 'characters' : 'character';
   return `${length} ${description}`;
 });
+
+// handle delete clicked
+const handleDeleteClicked = () => {
+  emit('deleteClicked', props.note.id);
+};
 </script>
