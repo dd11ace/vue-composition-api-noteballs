@@ -39,11 +39,9 @@
 
 <script setup>
 // imports
-
 import { ref } from 'vue';
 
 // mobile nav
-
 const showMobileNav = ref(false);
 </script>
 
