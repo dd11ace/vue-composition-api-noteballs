@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia';
+import { nextTick } from 'vue';
 
 export const useStoreNotes = defineStore('storeNotes', {
   state: () => {
@@ -30,6 +31,13 @@ export const useStoreNotes = defineStore('storeNotes', {
     },
     deleteNote(idToDelete) {
       this.notes = this.notes.filter(note => note.id !== idToDelete);
+    },
+  },
+  getters: {
+    getNoteContent: state => {
+      return id => {
+        return state.notes.filter(note => note.id === id)[0].content;
+      };
     },
   },
 });
