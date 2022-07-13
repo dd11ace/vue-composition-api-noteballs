@@ -1,3 +1,26 @@
+<script setup>
+// imports
+import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
+
+// mobile nav
+const showMobileNav = ref(false);
+
+// click outside to close
+const navbarMenuRef = ref(null);
+const navbarBurgerRef = ref(null);
+
+onClickOutside(
+  navbarMenuRef,
+  () => {
+    showMobileNav.value = false;
+  },
+  {
+    ignore: [navbarBurgerRef],
+  },
+);
+</script>
+
 <template>
   <nav class="navbar is-success" role="navigation" aria-label="main navigation">
     <div class="container is-max-desktop px-2">
@@ -48,29 +71,6 @@
     </div>
   </nav>
 </template>
-
-<script setup>
-// imports
-import { ref } from 'vue';
-import { onClickOutside } from '@vueuse/core';
-
-// mobile nav
-const showMobileNav = ref(false);
-
-// click outside to close
-const navbarMenuRef = ref(null);
-const navbarBurgerRef = ref(null);
-
-onClickOutside(
-  navbarMenuRef,
-  () => {
-    showMobileNav.value = false;
-  },
-  {
-    ignore: [navbarBurgerRef],
-  },
-);
-</script>
 
 <style>
 @media (max-width: 1023px) {
