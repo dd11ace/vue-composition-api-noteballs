@@ -28,7 +28,7 @@ useWatchCharacters(loveNoteballs, 50);
           <td>{{ storeNotes.totalNotesCount }}</td>
         </tr>
         <tr>
-          <td>Number of Notes (of all notes)</td>
+          <td>Number of Characters (of all notes)</td>
           <td>{{ storeNotes.totalCharactersCount }}</td>
         </tr>
       </tbody>
@@ -42,4 +42,3 @@ useWatchCharacters(loveNoteballs, 50);
     />
   </div>
 </template>
-

@@ -8,7 +8,7 @@ import { useStoreNotes } from '@/stores/storeNotes';
 const props = defineProps({
   modalValue: {
     type: Boolean,
-    defualt: false,
+    default: false,
   },
   noteId: {
     type: String,
